@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Laptop Price Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            padding: 40px;
+        }
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            margin-top: 20px;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background: #e0f7fa;
+            border: 2px solid #4CAF50;
+            color: #004d40;
+            font-size: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Laptop Price Predictor</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="Company">Company</label>
+            {{ form.Company }}
+
+            <label for="TypeName">Type</label>
+            {{ form.TypeName }}
+
+            <label for="Ram">RAM (GB)</label>
+            {{ form.Ram }}
+
+            <label for="Weight">Weight (kg)</label>
+            {{ form.Weight }}
+
+            <label for="Touchscreen">Touchscreen</label>
+            {{ form.Touchscreen }}
+
+            <label for="Ips">IPS Display</label>
+            {{ form.Ips }}
+
+            <label for="ppi">PPI</label>
+            {{ form.ppi }}
+
+            <label for="OpSys">Operating System</label>
+            {{ form.OpSys }}
+
+            <label for="Cpu_Brand">CPU Brand</label>
+            {{ form.Cpu_Brand }}
+
+            <label for="HDD">HDD (GB)</label>
+            {{ form.HDD }}
+
+            <label for="SSD">SSD (GB)</label>
+            {{ form.SSD }}
+
+            <label for="Gpu_brand">GPU Brand</label>
+            {{ form.Gpu_brand }}
+
+            <button type="submit">Predict Price</button>
+        </form>
+
+        {% if prediction %}
+        <div class="result">
+             Estimated Laptop Price: <strong>₹{{ prediction }}</strong>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

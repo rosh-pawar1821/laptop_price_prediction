@@ -1,0 +1,13 @@
+*.pyc
+__pycache__/
+db.sqlite3
+.env
+*.pkl
+*.h5
+.env/
+.vscode/
+.idea/
+media/
+staticfiles/
+node_modules/
+
